@@ -39,8 +39,17 @@ class RenderTopPinSliver extends RenderSliverSingleBoxAdapter {
     assert(paintedChildSize.isFinite);
     assert(paintedChildSize >= 0.0);
 
+    print(childExtent);
+
     geometry = SliverGeometry(
-      paintOrigin: -constraints.scrollOffset,
+      paintOrigin:
+      /// hite imidetly by scroll
+          //  -constraints.scrollOffset,
+
+      /// hite after first childExtend layout by scrolling
+          constraints.scrollOffset > childExtent
+              ? constraints.scrollOffset - constraints.scrollOffset
+              : constraints.scrollOffset,
       scrollExtent: childExtent,
       paintExtent: paintedChildSize,
       cacheExtent: cacheExtent,
@@ -50,6 +59,8 @@ class RenderTopPinSliver extends RenderSliverSingleBoxAdapter {
           constraints.scrollOffset > 0.0,
     );
     setChildParentData(child!, constraints, geometry!);
+
+    
 
     // var cmyCnstraints = constraints;
     // geometry = SliverGeometry.zero;

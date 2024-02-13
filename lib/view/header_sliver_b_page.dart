@@ -3,17 +3,26 @@ import 'package:sliver/widget/search_field.dart';
 
 class HeaderSliverSecondPage extends StatelessWidget {
   const HeaderSliverSecondPage({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar(
+          SliverAppBar(
             floating: true,
-            pinned: false,
+            pinned: true,
             snap: true,
-            title: SearchField(),
+            toolbarHeight: 0,
+            title: Container(
+              height: 10,
+              color: Colors.cyan,
+            ),
+            expandedHeight: 400,
+            bottom: const PreferredSize(
+              preferredSize: Size.fromHeight(100),
+              child: SearchField(),
+            ),
           ),
           SliverList.builder(
             itemBuilder: (context, index) => Container(

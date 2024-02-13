@@ -17,10 +17,11 @@ class HeaderSliverFourthPage extends StatelessWidget {
             slivers: [
               const SliverAppBar(
                 backgroundColor: AppColors.mainColor,
-                floating: true,
-                pinned: false,
-                snap: true,
-                title: SearchField(),
+                floating: false,
+                pinned: true,
+                snap: false,
+                title:Text("data"),
+                expandedHeight: 200,
                 flexibleSpace: Placeholder(),
               ),
               
